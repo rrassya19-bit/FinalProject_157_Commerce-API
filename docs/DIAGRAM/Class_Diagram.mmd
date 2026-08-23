@@ -1,0 +1,51 @@
+classDiagram
+    class User {
+        +int id
+        +string name
+        +string email
+        +string password
+        +string role
+        +Date created_at
+        +Date updated_at
+        +hashPassword()
+        +comparePassword()
+    }
+
+    class ApiKey {
+        +int id
+        +int user_id
+        +string api_key
+        +string label
+        +boolean is_active
+        +Date last_used_at
+        +Date created_at
+        +generateKey()
+    }
+
+    class Kategori {
+        +int id
+        +string nama
+        +string deskripsi
+        +Date created_at
+        +Date updated_at
+    }
+
+    class Produk {
+        +int id
+        +int user_id
+        +int kategori_id
+        +string nama
+        +string deskripsi
+        +float harga
+        +int stok
+        +string sku
+        +string gambar_url
+        +float berat
+        +string status
+        +Date created_at
+        +Date updated_at
+    }
+
+    User "1" --> "many" ApiKey : memiliki
+    User "1" --> "many" Produk : memiliki
+    Kategori "1" --> "many" Produk : mengelompokkan
