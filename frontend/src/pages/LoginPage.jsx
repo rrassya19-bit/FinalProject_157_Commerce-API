@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Mail, Lock, LogIn, Layers, AlertCircle } from 'lucide-react';
+import { Mail, Lock, LogIn, AlertCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
 import { authApi } from '../api/authApi';
@@ -68,8 +68,12 @@ const LoginPage = () => {
         className="w-full max-w-md bg-white dark:bg-[#111622] border border-slate-200/90 dark:border-slate-800/90 rounded-2xl p-8 shadow-md dark:shadow-2xl dark:shadow-black/40 text-[#2D3748] dark:text-slate-100"
       >
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-200/80 text-indigo-600 dark:bg-indigo-600/20 dark:border-indigo-500/30 dark:text-indigo-400 mb-4 shadow-2xs">
-            <Layers className="w-6 h-6" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 shadow-xs">
+            <img
+              src="/CommerceIcon.svg"
+              alt="CommerceAPI Logo"
+              className="w-12 h-12 rounded-xl border border-indigo-500/20 dark:border-indigo-400/20"
+            />
           </div>
           <h2 className="text-2xl font-bold text-[#1A202C] dark:text-white tracking-tight">
             {t('auth.loginTitle')}

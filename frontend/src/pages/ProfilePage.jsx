@@ -1,5 +1,5 @@
 import React from 'react';
-import { LogOut, KeyRound } from 'lucide-react';
+import { LogOut, KeyRound, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import Card from '../components/ui/Card';
@@ -32,8 +32,16 @@ const ProfilePage = () => {
       {/* User Card */}
       <Card variant="default">
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-600 flex items-center justify-center text-white text-3xl font-bold uppercase shadow-md shadow-indigo-500/20 shrink-0">
-            {user?.name ? user.name.charAt(0) : 'U'}
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 shrink-0 overflow-hidden">
+            {user?.avatar_url ? (
+              <img
+                src={user.avatar_url}
+                alt={user?.name || 'User Avatar'}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <User className="w-10 h-10 text-white/95" />
+            )}
           </div>
 
           <div className="flex-1 space-y-4 text-center sm:text-left w-full">

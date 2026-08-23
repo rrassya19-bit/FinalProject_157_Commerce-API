@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Layers, BookOpen, LogIn, UserPlus, Terminal, Menu, X } from 'lucide-react';
+import { BookOpen, LogIn, UserPlus, Terminal, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Button from '../ui/Button';
 import ThemeToggle from '../ui/ThemeToggle';
@@ -16,9 +16,11 @@ const PublicNavbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform">
-            <Layers className="w-5 h-5" />
-          </div>
+          <img
+            src="/CommerceIcon.svg"
+            alt="CommerceAPI Logo"
+            className="w-9 h-9 rounded-xl shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform border border-indigo-500/20 dark:border-indigo-400/20"
+          />
           <span className="font-bold text-lg tracking-tight text-[#1A202C] dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
             Commerce<span className="text-indigo-600 dark:text-indigo-400">API</span>
           </span>

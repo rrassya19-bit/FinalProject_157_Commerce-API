@@ -7,7 +7,6 @@ import {
   FolderTree,
   User,
   BookOpen,
-  Layers,
   Terminal
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -52,9 +51,11 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
       >
         {/* Brand */}
         <div className="h-16 flex items-center gap-3 px-6 border-b border-slate-200/80 dark:border-slate-800/80">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white shadow-md shadow-indigo-500/20">
-            <Layers className="w-5 h-5" />
-          </div>
+          <img
+            src="/CommerceIcon.svg"
+            alt="CommerceAPI Logo"
+            className="w-8 h-8 rounded-lg shadow-md shadow-indigo-500/20 border border-indigo-500/20 dark:border-indigo-400/20"
+          />
           <span className="font-bold text-base tracking-tight text-[#1A202C] dark:text-white">
             Commerce<span className="text-indigo-600 dark:text-indigo-400">API</span>
           </span>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -70,9 +69,11 @@ const IntroSplash = () => {
               <div className="absolute -inset-1.5 rounded-full border border-indigo-500/10 dark:border-indigo-400/10 pointer-events-none" />
 
               {/* Main Brand Squircle Icon */}
-              <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-indigo-400 flex items-center justify-center text-white shadow-xl shadow-indigo-500/25 dark:shadow-indigo-500/35 ring-1 ring-white/20">
-                <Layers className="w-8 h-8 sm:w-9 sm:h-9" />
-              </div>
+              <img
+                src="/CommerceIcon.svg"
+                alt="CommerceAPI Logo"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl shadow-xl shadow-indigo-500/25 dark:shadow-indigo-500/35 border border-indigo-500/30 dark:border-indigo-400/30 object-contain"
+              />
             </div>
 
             {/* Brand Title */}

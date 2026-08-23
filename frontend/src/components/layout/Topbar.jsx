@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu } from 'lucide-react';
+import { Menu, User } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ui/ThemeToggle';
@@ -28,8 +28,16 @@ const Topbar = ({ onMenuClick }) => {
           to="/dashboard/profile"
           className="flex items-center gap-3 p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
         >
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xs font-semibold uppercase shadow-inner">
-            {user?.name ? user.name.charAt(0) : 'U'}
+          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-inner overflow-hidden">
+            {user?.avatar_url ? (
+              <img
+                src={user.avatar_url}
+                alt={user?.name || 'User Avatar'}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <User className="w-4 h-4 text-white/95" />
+            )}
           </div>
           <div className="hidden md:block text-left">
             <div className="text-xs font-semibold text-[#1A202C] dark:text-slate-200">{user?.name || 'User'}</div>
