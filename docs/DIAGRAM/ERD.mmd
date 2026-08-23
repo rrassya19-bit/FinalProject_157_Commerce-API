@@ -1,0 +1,48 @@
+erDiagram
+    USERS ||--o{ API_KEYS : "memiliki"
+    USERS ||--o{ PRODUK : "memiliki"
+    KATEGORI ||--o{ PRODUK : "mengelompokkan"
+
+    USERS {
+        int id PK
+        varchar name
+        varchar email UK
+        varchar password
+        varchar role
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    API_KEYS {
+        int id PK
+        int user_id FK
+        varchar api_key UK
+        varchar label
+        boolean is_active
+        timestamp last_used_at
+        timestamp created_at
+    }
+
+    KATEGORI {
+        int id PK
+        varchar nama
+        text deskripsi
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PRODUK {
+        int id PK
+        int user_id FK
+        int kategori_id FK
+        varchar nama
+        text deskripsi
+        numeric harga
+        int stok
+        varchar sku UK
+        varchar gambar_url
+        numeric berat
+        varchar status
+        timestamp created_at
+        timestamp updated_at
+    }
