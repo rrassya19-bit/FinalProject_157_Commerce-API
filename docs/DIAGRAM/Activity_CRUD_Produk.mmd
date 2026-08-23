@@ -1,0 +1,22 @@
+flowchart TD
+    Start([Mulai]) --> A[API Consumer menyiapkan request<br/>dengan header x-api-key]
+    A --> B[Kirim request ke endpoint<br/>GET/POST/PUT/DELETE /api/v1/produk]
+    B --> C{apiKeyMiddleware:<br/>API Key valid & aktif?}
+    C -- Tidak --> D[Response 401 Unauthorized]
+    D --> End1([Selesai — Gagal])
+    C -- Ya --> E[Update last_used_at pada api_keys]
+    E --> F{Jenis request?}
+    F -- GET --> G[Ambil data produk/kategori<br/>dari database]
+    F -- POST --> H[Validasi input<br/>harga & stok tidak boleh negatif]
+    H --> I[Simpan produk baru]
+    F -- PUT --> J[Cari produk berdasarkan id]
+    J --> K{Produk ditemukan?}
+    K -- Tidak --> L[Response 404 Not Found]
+    K -- Ya --> M[Update data produk]
+    F -- DELETE --> N[Cari & hapus produk berdasarkan id]
+    G --> O[Response 200 + data JSON]
+    I --> O
+    M --> O
+    N --> O
+    L --> End2([Selesai — Gagal])
+    O --> End3([Selesai — Berhasil])
