@@ -1,0 +1,45 @@
+graph TB
+    Guest([Guest])
+    Seller([Seller])
+    APIConsumer([API Consumer])
+
+    UC1[Register Akun]
+    UC2[Login]
+    UC3[Generate API Key]
+    UC4[Melihat Daftar API Key]
+    UC5[Menghapus / Revoke API Key]
+    UC6[Melihat Data Produk]
+    UC7[Menambah Produk]
+    UC8[Mengubah Produk]
+    UC9[Menghapus Produk]
+    UC10[Melihat Data Kategori]
+    UC11[Menambah Kategori]
+    UC12[Mengubah Kategori]
+    UC13[Menghapus Kategori]
+
+    Guest --> UC1
+    Guest --> UC2
+
+    Seller --> UC2
+    Seller --> UC3
+    Seller --> UC4
+    Seller --> UC5
+
+    APIConsumer --> UC6
+    APIConsumer --> UC7
+    APIConsumer --> UC8
+    APIConsumer --> UC9
+    APIConsumer --> UC10
+    APIConsumer --> UC11
+    APIConsumer --> UC12
+    APIConsumer --> UC13
+
+    UC3 -.include.-> UC2
+    UC6 -.require.-> AuthKey[Validasi API Key]
+    UC7 -.require.-> AuthKey
+    UC8 -.require.-> AuthKey
+    UC9 -.require.-> AuthKey
+    UC10 -.require.-> AuthKey
+    UC11 -.require.-> AuthKey
+    UC12 -.require.-> AuthKey
+    UC13 -.require.-> AuthKey
