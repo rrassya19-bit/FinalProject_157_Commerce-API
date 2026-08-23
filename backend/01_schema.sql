@@ -1,0 +1,55 @@
+-- 01_schema.sql
+-- Struktur Tabel CommerceAPI
+
+DROP TABLE IF EXISTS produk CASCADE;
+DROP TABLE IF EXISTS kategori CASCADE;
+DROP TABLE IF EXISTS api_keys CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
+-- Tabel 1: users
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) DEFAULT 'seller',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel 2: api_keys
+CREATE TABLE api_keys (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    api_key VARCHAR(255) NOT NULL UNIQUE,
+    label VARCHAR(100),
+    is_active BOOLEAN DEFAULT TRUE,
+    last_used_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel 3: kategori
+CREATE TABLE kategori (
+    id SERIAL PRIMARY KEY,
+    nama VARCHAR(100) NOT NULL,
+    deskripsi TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabel 4: produk
+CREATE TABLE produk (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    kategori_id INTEGER REFERENCES kategori(id) ON DELETE SET NULL,
+    nama VARCHAR(150) NOT NULL,
+    deskripsi TEXT,
+    harga NUMERIC(12,2) NOT NULL,
+    stok INTEGER NOT NULL DEFAULT 0,
+    sku VARCHAR(50) UNIQUE,
+    gambar_url VARCHAR(255),
+    berat NUMERIC(8,2),
+    status VARCHAR(20) DEFAULT 'active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
