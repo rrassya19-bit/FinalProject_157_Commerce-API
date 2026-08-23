@@ -1,0 +1,21 @@
+flowchart TD
+    Start([Mulai]) --> A[User membuka aplikasi]
+    A --> B{Sudah punya akun?}
+    B -- Belum --> C[Isi form Register:<br/>name, email, password]
+    C --> D[POST /auth/register]
+    D --> E{Email sudah terdaftar?}
+    E -- Ya --> F[Tampilkan error:<br/>email sudah dipakai]
+    F --> C
+    E -- Tidak --> G[Password di-hash bcrypt<br/>User tersimpan di database]
+    G --> H[Isi form Login]
+    B -- Sudah --> H
+    H --> I[POST /auth/login]
+    I --> J{Email & password valid?}
+    J -- Tidak --> K[Tampilkan error login]
+    K --> H
+    J -- Ya --> L[Server generate JWT Token]
+    L --> M[User klik Generate API Key]
+    M --> N[POST /api-keys<br/>dengan header Authorization: Bearer JWT]
+    N --> O[Server generate random API Key<br/>simpan ke tabel api_keys]
+    O --> P[API Key ditampilkan ke user]
+    P --> End([Selesai — API Key siap dipakai])
