@@ -1,0 +1,21 @@
+graph LR
+    subgraph Client
+        A[Postman / Aplikasi Eksternal / Browser]
+    end
+
+    subgraph Vercel["Vercel — Serverless Hosting"]
+        B[Express.js App<br/>index.js]
+        C[Middleware:<br/>authMiddleware & apiKeyMiddleware]
+        D[Controller & Routes<br/>Auth, ApiKey, Produk, Kategori]
+    end
+
+    subgraph Supabase["Supabase — Database Cloud (Singapore)"]
+        E[(PostgreSQL Database<br/>users, api_keys, kategori, produk)]
+    end
+
+    A -- HTTPS Request --> B
+    B --> C
+    C --> D
+    D -- Sequelize ORM / SSL --> E
+    E -- Response Data --> D
+    D -- JSON Response --> A
