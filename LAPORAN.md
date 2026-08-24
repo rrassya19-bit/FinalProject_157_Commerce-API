@@ -17,7 +17,10 @@
 
 ### **Tautan Proyek & Live Deployment:**
 * **Repositori GitHub:** [https://github.com/rrassya19-bit/FinalProject_157_Commerce-API](https://github.com/rrassya19-bit/FinalProject_157_Commerce-API)
+
+* **Link Demo Frontend:** [https://commerceapi-frontend.vercel.app](https://commerceapi-frontend.vercel.app)
 * **Live API Backend Server (Vercel):** [https://commerce-api-backend.vercel.app](https://commerce-api-backend.vercel.app)
+* **Link Laporan Google Drive:** [https://drive.google.com/drive/folders/1_n1CPKG8MByAwMm9OX9gIsy0PhCt-0Dt?usp=sharing](https://drive.google.com/drive/folders/1_n1CPKG8MByAwMm9OX9gIsy0PhCt-0Dt?usp=sharing)
 * **Database Host:** PostgreSQL (Supabase Cloud, Region Singapore, SSL Connection Pooler Port 6543)
 
 ---
@@ -1151,20 +1154,3 @@ SELECT setval('kategori_id_seq', COALESCE((SELECT MAX(id) FROM kategori), 1));
 SELECT setval('produk_id_seq', COALESCE((SELECT MAX(id) FROM produk), 1));
 SELECT setval('api_keys_id_seq', COALESCE((SELECT MAX(id) FROM api_keys), 1));
 ```
-
----
-
-### Petunjuk Praktis Konversi Dokumen ke Word / PDF:
-
-1. **Cara 1: Menyalin ke Microsoft Word / Google Docs (Sangat Mudah)**
-   - Buka file `LAPORAN.md` ini di editor teks / VS Code.
-   - Tekan `Ctrl + A` lalu `Ctrl + C` (Salin semua teks).
-   - Buka dokumen kosong di **Google Docs** atau **Microsoft Word**, lalu tekan `Ctrl + V` (Paste).
-   - Semua judul, tabel perbandingan, checklist matriks, dan penomoran bab akan langsung terformat rapi sesuai gaya dokumen akademik.
-   - Anda tinggal menyisipkan gambar-gambar diagram dari folder `docs/DIAGRAM/Screenshots_DIAGRAM/` pada bagian diagram jika ingin visual gambar langsung tampil di dalam dokumen cetak.
-
-2. **Cara 2: Ekspor Langsung ke PDF dari VS Code**
-   - Pasang ekstensi **Markdown PDF** (oleh yzane) di VS Code.
-   - Buka file `LAPORAN.md`.
-   - Klik kanan di sembarang area editor $\rightarrow$ pilih **Markdown PDF: Export (pdf)**.
-   - File `LAPORAN.pdf` siap pakai akan otomatis ter-generate di folder proyek Anda.

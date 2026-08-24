@@ -4,7 +4,20 @@
 
 CommerceAPI adalah layanan backend bergaya SaaS yang menyediakan akses CRUD ke data produk e-commerce melalui satu API key — konsepnya analog dengan cara kerja **OpenRouter**, tapi alih-alih menyediakan akses ke berbagai model AI, project ini menyediakan akses terprogram ke data **produk** dan **kategori**.
 
-Dibangun sebagai proyek akhir mata kuliah *Pengembangan Web Servis* (NIM: 20250140157).
+Dibangun sebagai proyek akhir mata kuliah *Pengembangan Web Servis*:
+* **Nama:** Ahmad Rassya Maulana
+* **NIM:** 20250140157
+
+---
+
+### 🌐 Tautan Proyek & Live Deployment
+
+| Sumber Daya | Tautan URL |
+|---|---|
+| **Repositori GitHub** | [https://github.com/rrassya19-bit/FinalProject_157_Commerce-API](https://github.com/rrassya19-bit/FinalProject_157_Commerce-API) |
+| **Live Demo Frontend** | [https://commerceapi-frontend.vercel.app](https://commerceapi-frontend.vercel.app) |
+| **Live Demo Backend (API Server)** | [https://commerce-api-backend.vercel.app](https://commerce-api-backend.vercel.app) |
+| **Laporan Proyek (Google Drive)** | [https://drive.google.com/drive/folders/1_n1CPKG8MByAwMm9OX9gIsy0PhCt-0Dt?usp=sharing](https://drive.google.com/drive/folders/1_n1CPKG8MByAwMm9OX9gIsy0PhCt-0Dt?usp=sharing) |
 
 ---
 
