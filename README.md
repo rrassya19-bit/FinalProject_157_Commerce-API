@@ -75,8 +75,6 @@ FinalProject_157_Commerce-API/
 ├── backend/
 │   ├── config/                # Konfigurasi Sequelize & koneksi DB
 │   ├── controller/             # Logic tiap endpoint (auth, apiKey, produk, kategori)
-│   ├── DIAGRAM/                 # ERD, Use Case, Activity, Class, Deployment Diagram
-│   ├── Dokumentasi_Postman/     # Koleksi Postman
 │   ├── middleware/              # authMiddleware (JWT) & apiKeyMiddleware (x-api-key)
 │   ├── migrations/
 │   ├── models/                  # Model Sequelize (user, apiKey, produk, kategori)
@@ -84,7 +82,15 @@ FinalProject_157_Commerce-API/
 │   ├── seeders/
 │   ├── 01_schema.sql            # Struktur tabel siap pakai
 │   ├── 02_seed_data.sql         # 10 kategori + 50 produk dummy
-│   └── index.js
+│   ├── index.js
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vercel.json
+│
+├── docs/
+│   ├── DIAGRAM/                 # ERD, Use Case, Activity, Class, Deployment Diagram
+│   ├── Dokumentasi_Postman/     # Koleksi Postman screenshot
+│   └── DIAGRAM.md
 │
 ├── frontend/
 │   ├── src/
@@ -97,6 +103,9 @@ FinalProject_157_Commerce-API/
 │   │   ├── i18n/                 # Locale ID/EN
 │   │   ├── layouts/              # DashboardLayout, PublicLayout
 │   │   └── pages/                # Landing, Login, Register, Dashboard, Produk, Kategori, API Keys, Playground, Docs, Profile
+│   ├── .env.example
+│   ├── vercel.json
+│   ├── package.json
 │   └── vite.config.js
 │
 ├── PERANCANGAN.md
@@ -283,8 +292,8 @@ VITE_API_BASE_URL=http://localhost:3000
 ## Dokumentasi Tambahan
 
 - **`PERANCANGAN.md`** — Dokumen perancangan lengkap sistem (skema database, tech stack, alur endpoint)
-- **`backend/DIAGRAM.md`** & folder `backend/DIAGRAM/` — ERD, Use Case Diagram, Activity Diagram, Class Diagram, Deployment Diagram
-- **`backend/Dokumentasi_Postman/`** — Koleksi Postman untuk testing seluruh endpoint
+- **`docs/DIAGRAM.md`** & folder **`docs/DIAGRAM/`** — ERD, Use Case Diagram, Activity Diagram, Class Diagram, Deployment Diagram
+- **`docs/Dokumentasi_Postman/`** — Koleksi Postman untuk testing seluruh endpoint
 - Halaman **API Docs** & **API Playground** tersedia langsung di dashboard frontend untuk uji coba endpoint secara interaktif tanpa aplikasi eksternal
 
 ---

@@ -116,21 +116,11 @@ FinalProject_157_Commerce-API/
 ├── backend/
 │   ├── config/
 │   │   ├── config.js
-│   │   └── db.js
 │   ├── controller/
 │   │   ├── apiKeyController.js
 │   │   ├── authController.js
 │   │   ├── kategoriController.js
 │   │   └── produkController.js
-│   ├── DIAGRAM/
-│   │   ├── Screenshots_DIAGRAM/
-│   │   ├── Activity_CRUD_Produk.mmd
-│   │   ├── Activity_Register_Login.mmd
-│   │   ├── Class_Diagram.mmd
-│   │   ├── Deployment_Diagram.mmd
-│   │   ├── ERD.mmd
-│   │   └── UseCase.mmd
-│   ├── Dokumentasi_Postman/
 │   ├── middleware/
 │   │   ├── apiKeyMiddleware.js
 │   │   └── authMiddleware.js
@@ -152,11 +142,22 @@ FinalProject_157_Commerce-API/
 │   ├── .gitignore
 │   ├── 01_schema.sql
 │   ├── 02_seed_data.sql
-│   ├── DIAGRAM.md
 │   ├── index.js
 │   ├── package.json
 │   ├── package-lock.json
 │   └── vercel.json
+│
+├── docs/
+│   ├── DIAGRAM/
+│   │   ├── Screenshots_DIAGRAM/
+│   │   ├── Activity_CRUD_Produk.mmd
+│   │   ├── Activity_Register_Login.mmd
+│   │   ├── Class_Diagram.mmd
+│   │   ├── Deployment_Diagram.mmd
+│   │   ├── ERD.mmd
+│   │   └── UseCase.mmd
+│   ├── Dokumentasi_Postman/
+│   └── DIAGRAM.md
 │
 ├── frontend/
 │   ├── dist/
@@ -178,12 +179,14 @@ FinalProject_157_Commerce-API/
 │   │   │   │   └── Topbar.jsx
 │   │   │   ├── shared/
 │   │   │   │   ├── AnimatedBackground.jsx
-│   │   │   │   ├── AnimationIndicator.jsx
+│   │   │   │   ├── IntroSplash.jsx
 │   │   │   │   └── ProtectedRoute.jsx
 │   │   │   └── ui/
+│   │   │       ├── Badge.jsx
 │   │   │       ├── Button.jsx
 │   │   │       ├── Card.jsx
 │   │   │       ├── ConfirmModal.jsx
+│   │   │       ├── IconContainer.jsx
 │   │   │       ├── LanguageToggle.jsx
 │   │   │       ├── Modal.jsx
 │   │   │       ├── Skeleton.jsx
@@ -216,10 +219,12 @@ FinalProject_157_Commerce-API/
 │   │   ├── index.css
 │   │   └── main.jsx
 │   ├── .env
+│   ├── .env.example
 │   ├── .gitignore
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
+│   ├── vercel.json
 │   └── vite.config.js
 │
 ├── PERANCANGAN.md
@@ -330,7 +335,7 @@ VITE_API_BASE_URL=http://localhost:3000
 
 ### 1. Menjalankan Backend:
 ```bash
-cd backendl
+cd backend
 npm run dev    # atau npm start
 # Backend berjalan pada http://localhost:3000
 ```
