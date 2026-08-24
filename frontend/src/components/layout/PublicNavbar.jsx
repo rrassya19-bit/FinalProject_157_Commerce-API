@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, LogIn, UserPlus, Terminal, Menu, X } from 'lucide-react';
+import { BookOpen, LogIn, UserPlus, Terminal, LayoutDashboard, Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../context/AuthContext';
 import Button from '../ui/Button';
 import ThemeToggle from '../ui/ThemeToggle';
 import LanguageToggle from '../ui/LanguageToggle';
@@ -9,6 +10,7 @@ import LanguageToggle from '../ui/LanguageToggle';
 const PublicNavbar = () => {
   const location = useLocation();
   const { t } = useTranslation();
+  const { isAuthenticated, user } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -68,16 +70,26 @@ const PublicNavbar = () => {
           <ThemeToggle />
           <div className="h-5 w-px bg-slate-200 dark:bg-slate-800 mx-1 hidden sm:block" />
           <div className="hidden sm:flex items-center gap-2">
-            <Link to="/login">
-              <Button variant="ghost" size="sm" icon={LogIn}>
-                {t('nav.login')}
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button variant="primary" size="sm" icon={UserPlus}>
-                {t('nav.getStarted')}
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <Link to="/dashboard">
+                <Button variant="primary" size="sm" icon={LayoutDashboard}>
+                  {t('nav.dashboard')}
+                </Button>
+              </Link>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="ghost" size="sm" icon={LogIn}>
+                    {t('nav.login')}
+                  </Button>
+                </Link>
+                <Link to="/register">
+                  <Button variant="primary" size="sm" icon={UserPlus}>
+                    {t('nav.getStarted')}
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Hamburger Button for Mobile */}
@@ -134,16 +146,26 @@ const PublicNavbar = () => {
           </nav>
 
           <div className="pt-2 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-col gap-2">
-            <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="secondary" size="sm" className="w-full" icon={LogIn}>
-                {t('nav.login')}
-              </Button>
-            </Link>
-            <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="primary" size="sm" className="w-full" icon={UserPlus}>
-                {t('nav.getStarted')}
-              </Button>
-            </Link>
+            {isAuthenticated ? (
+              <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>
+                <Button variant="primary" size="sm" className="w-full" icon={LayoutDashboard}>
+                  {t('nav.dashboard')}
+                </Button>
+              </Link>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="secondary" size="sm" className="w-full" icon={LogIn}>
+                    {t('nav.login')}
+                  </Button>
+                </Link>
+                <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
+                  <Button variant="primary" size="sm" className="w-full" icon={UserPlus}>
+                    {t('nav.getStarted')}
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

@@ -6,14 +6,17 @@ import {
   Copy,
   Check,
   Terminal,
+  LayoutDashboard,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
 import toast from 'react-hot-toast';
 
 const DocsPage = () => {
   const { t } = useTranslation();
+  const { isAuthenticated } = useAuth();
   const [activeSection, setActiveSection] = useState('auth-register');
   const [copiedIndex, setCopiedIndex] = useState(null);
 
@@ -540,11 +543,20 @@ const DocsPage = () => {
             {t('docs.subtitle')}
           </p>
         </div>
-        <Link to="/docs/playground">
-          <Button variant="outline" icon={Terminal}>
-            {t('docs.openPlayground')}
-          </Button>
-        </Link>
+        <div className="flex items-center gap-3">
+          {isAuthenticated && (
+            <Link to="/dashboard">
+              <Button variant="secondary" icon={LayoutDashboard}>
+                {t('nav.dashboard')}
+              </Button>
+            </Link>
+          )}
+          <Link to="/docs/playground">
+            <Button variant="outline" icon={Terminal}>
+              {t('docs.openPlayground')}
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Docs Layout */}

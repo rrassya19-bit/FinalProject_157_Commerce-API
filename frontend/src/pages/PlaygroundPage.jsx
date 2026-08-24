@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Send, AlertCircle, LogIn, UserPlus } from 'lucide-react';
+import { Terminal, Send, AlertCircle, LogIn, UserPlus, LayoutDashboard, BookOpen } from 'lucide-react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -85,14 +85,30 @@ const PlaygroundPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Header */}
-      <div className="pb-6 border-b border-slate-200/80 dark:border-slate-800">
-        <h1 className="text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
-          <Terminal className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
-          {t('playground.title')}
-        </h1>
-        <p className="text-sm text-[#718096] dark:text-slate-400 mt-1">
-          {t('playground.subtitle')}
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
+        <div>
+          <h1 className="text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
+            <Terminal className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
+            {t('playground.title')}
+          </h1>
+          <p className="text-sm text-[#718096] dark:text-slate-400 mt-1">
+            {t('playground.subtitle')}
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
+          {isAuthenticated && (
+            <Link to="/dashboard">
+              <Button variant="secondary" icon={LayoutDashboard}>
+                {t('nav.dashboard')}
+              </Button>
+            </Link>
+          )}
+          <Link to="/docs">
+            <Button variant="outline" icon={BookOpen}>
+              {t('nav.docs')}
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Guest / No Key Warning Banner */}
