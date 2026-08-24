@@ -23,8 +23,8 @@ const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
   ];
 
   const docNav = [
-    { name: t('nav.docs'), path: '/docs', icon: BookOpen },
-    { name: t('nav.playground'), path: '/docs/playground', icon: Terminal },
+    { name: t('nav.docs'), path: '/dashboard/docs', icon: BookOpen },
+    { name: t('nav.playground'), path: '/dashboard/playground', icon: Terminal },
   ];
 
   const navLinkClass = ({ isActive }) =>

@@ -14,7 +14,7 @@ import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
 import toast from 'react-hot-toast';
 
-const DocsPage = () => {
+const DocsPage = ({ isDashboard = false }) => {
   const { t } = useTranslation();
   const { isAuthenticated } = useAuth();
   const [activeSection, setActiveSection] = useState('auth-register');
@@ -535,23 +535,23 @@ const DocsPage = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
             <BookOpen className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
-            {t('docs.title')}
+            CommerceAPI — {t('docs.title')}
           </h1>
           <p className="text-sm text-[#718096] dark:text-slate-400 mt-1">
-            {t('docs.subtitle')}
+            SaaS API Gateway untuk Data Produk E-Commerce • {t('docs.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          {isAuthenticated && (
+          {!isDashboard && isAuthenticated && (
             <Link to="/dashboard">
               <Button variant="secondary" icon={LayoutDashboard}>
                 {t('nav.dashboard')}
               </Button>
             </Link>
           )}
-          <Link to="/docs/playground">
+          <Link to={isDashboard ? "/dashboard/playground" : "/docs/playground"}>
             <Button variant="outline" icon={Terminal}>
               {t('docs.openPlayground')}
             </Button>

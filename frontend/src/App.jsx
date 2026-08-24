@@ -70,6 +70,7 @@ function App() {
             <Route path="/login" element={<PageWrapper><LoginPage /></PageWrapper>} />
             <Route path="/docs" element={<PageWrapper><DocsPage /></PageWrapper>} />
             <Route path="/docs/playground" element={<PageWrapper><PlaygroundPage /></PageWrapper>} />
+            <Route path="/playground" element={<PageWrapper><PlaygroundPage /></PageWrapper>} />
           </Route>
 
           {/* Protected Routes (Dashboard) */}
@@ -80,6 +81,8 @@ function App() {
               <Route path="/dashboard/produk" element={<PageWrapper><ProdukPage /></PageWrapper>} />
               <Route path="/dashboard/kategori" element={<PageWrapper><KategoriPage /></PageWrapper>} />
               <Route path="/dashboard/profile" element={<PageWrapper><ProfilePage /></PageWrapper>} />
+              <Route path="/dashboard/docs" element={<PageWrapper><DocsPage isDashboard={true} /></PageWrapper>} />
+              <Route path="/dashboard/playground" element={<PageWrapper><PlaygroundPage isDashboard={true} /></PageWrapper>} />
             </Route>
           </Route>
 

@@ -8,7 +8,7 @@ import Card from '../components/ui/Card';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 
-const PlaygroundPage = () => {
+const PlaygroundPage = ({ isDashboard = false }) => {
   const { activeApiKey, token, isAuthenticated } = useAuth();
   const { t } = useTranslation();
 
@@ -17,6 +17,12 @@ const PlaygroundPage = () => {
   const [apiKeyInput, setApiKeyInput] = useState(activeApiKey || '');
   const [jwtInput, setJwtInput] = useState(token || '');
   const [requestBody, setRequestBody] = useState('{\n  "kategori_id": 1,\n  "nama": "Produk Testing Playground",\n  "harga": 150000,\n  "stok": 10\n}');
+  
+  // Sinkronkan API key & token jika auth state diperbarui
+  React.useEffect(() => {
+    if (activeApiKey) setApiKeyInput(activeApiKey);
+    if (token) setJwtInput(token);
+  }, [activeApiKey, token]);
   
   const [loading, setLoading] = useState(false);
   const [responseStatus, setResponseStatus] = useState(null);
@@ -87,23 +93,23 @@ const PlaygroundPage = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800">
         <div>
-          <h1 className="text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1A202C] dark:text-white tracking-tight flex items-center gap-3">
             <Terminal className="w-7 h-7 text-indigo-600 dark:text-indigo-400" />
-            {t('playground.title')}
+            CommerceAPI — {t('playground.title')}
           </h1>
           <p className="text-sm text-[#718096] dark:text-slate-400 mt-1">
-            {t('playground.subtitle')}
+            Uji Coba Endpoint RESTful API Secara Langsung • {t('playground.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          {isAuthenticated && (
+          {!isDashboard && isAuthenticated && (
             <Link to="/dashboard">
               <Button variant="secondary" icon={LayoutDashboard}>
                 {t('nav.dashboard')}
               </Button>
             </Link>
           )}
-          <Link to="/docs">
+          <Link to={isDashboard ? "/dashboard/docs" : "/docs"}>
             <Button variant="outline" icon={BookOpen}>
               {t('nav.docs')}
             </Button>
