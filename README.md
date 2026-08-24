@@ -89,7 +89,8 @@ FinalProject_157_Commerce-API/
 │
 ├── docs/
 │   ├── DIAGRAM/                 # ERD, Use Case, Activity, Class, Deployment Diagram
-│   ├── Dokumentasi_Postman/     # Koleksi Postman screenshot
+│   ├── Dokumentasi_Postman_Deploy_https=commerce-api-backend.vercel.app/  # Screenshot pengujian Postman production
+│   ├── Dokumentasi_Postman_LocalHost_http=localhost3000/                 # Screenshot pengujian Postman local
 │   └── DIAGRAM.md
 │
 ├── frontend/
@@ -293,7 +294,7 @@ VITE_API_BASE_URL=http://localhost:3000
 
 - **`PERANCANGAN.md`** — Dokumen perancangan lengkap sistem (skema database, tech stack, alur endpoint)
 - **`docs/DIAGRAM.md`** & folder **`docs/DIAGRAM/`** — ERD, Use Case Diagram, Activity Diagram, Class Diagram, Deployment Diagram
-- **`docs/Dokumentasi_Postman/`** — Koleksi Postman untuk testing seluruh endpoint
+- **`docs/Dokumentasi_Postman_Deploy_https=commerce-api-backend.vercel.app/`** & **`docs/Dokumentasi_Postman_LocalHost_http=localhost3000/`** — Koleksi Postman screenshot untuk testing seluruh endpoint
 - Halaman **API Docs** & **API Playground** tersedia langsung di dashboard frontend untuk uji coba endpoint secara interaktif tanpa aplikasi eksternal
 
 ---

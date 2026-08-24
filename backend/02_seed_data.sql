@@ -82,3 +82,9 @@ INSERT INTO produk (user_id, kategori_id, nama, deskripsi, harga, stok, sku, gam
 (1, 10, 'Rubik Speedcube Magnetik 3x3', 'Putaran sangat licin, magnet kuat untuk kompetisi speedcubing', 85000.00, 45, 'MH-003', 'https://images.unsplash.com/photo-1568832359672-e36cf5d74f54', 120.0, 'active', NOW(), NOW()),
 (1, 10, 'Board Game Strategi Keluarga Seru', 'Permainan papan taktik 2-4 pemain durasi 45 menit', 245000.00, 15, 'MH-004', 'https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09', 950.0, 'active', NOW(), NOW()),
 (1, 10, 'Puzzle 1000 Pcs Pemandangan Alam', 'Bahan karton presisi gambar tajam dan kaya warna', 125000.00, 30, 'MH-005', 'https://images.unsplash.com/photo-1587740896339-96a76170508d', 600.0, 'active', NOW(), NOW());
+
+-- Sinkronisasi sequence primary key setelah seed manual
+SELECT setval('users_id_seq', COALESCE((SELECT MAX(id) FROM users), 1));
+SELECT setval('kategori_id_seq', COALESCE((SELECT MAX(id) FROM kategori), 1));
+SELECT setval('produk_id_seq', COALESCE((SELECT MAX(id) FROM produk), 1));
+SELECT setval('api_keys_id_seq', COALESCE((SELECT MAX(id) FROM api_keys), 1));

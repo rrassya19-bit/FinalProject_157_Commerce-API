@@ -156,7 +156,8 @@ FinalProject_157_Commerce-API/
 │   │   ├── Deployment_Diagram.mmd
 │   │   ├── ERD.mmd
 │   │   └── UseCase.mmd
-│   ├── Dokumentasi_Postman/
+│   ├── Dokumentasi_Postman_Deploy_https=commerce-api-backend.vercel.app/
+│   ├── Dokumentasi_Postman_LocalHost_http=localhost3000/
 │   └── DIAGRAM.md
 │
 ├── frontend/

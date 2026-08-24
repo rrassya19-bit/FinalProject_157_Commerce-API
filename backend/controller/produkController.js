@@ -192,9 +192,12 @@ const createProduk = async (req, res) => {
       data: newProduk
     });
   } catch (error) {
+    const errorMsg = error.errors && error.errors.length > 0
+      ? error.errors.map(e => e.message).join(', ')
+      : error.message;
     return res.status(500).json({
       success: false,
-      message: 'Terjadi kesalahan pada server saat membuat produk: ' + error.message,
+      message: 'Terjadi kesalahan pada server saat membuat produk: ' + errorMsg,
       data: null
     });
   }
@@ -280,9 +283,12 @@ const updateProduk = async (req, res) => {
       data: produk
     });
   } catch (error) {
+    const errorMsg = error.errors && error.errors.length > 0
+      ? error.errors.map(e => e.message).join(', ')
+      : error.message;
     return res.status(500).json({
       success: false,
-      message: 'Terjadi kesalahan pada server saat mengupdate produk: ' + error.message,
+      message: 'Terjadi kesalahan pada server saat mengupdate produk: ' + errorMsg,
       data: null
     });
   }

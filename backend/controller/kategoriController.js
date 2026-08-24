@@ -77,9 +77,12 @@ const createKategori = async (req, res) => {
       data: newKategori
     });
   } catch (error) {
+    const errorMsg = error.errors && error.errors.length > 0
+      ? error.errors.map(e => e.message).join(', ')
+      : error.message;
     return res.status(500).json({
       success: false,
-      message: 'Terjadi kesalahan pada server saat membuat kategori: ' + error.message,
+      message: 'Terjadi kesalahan pada server saat membuat kategori: ' + errorMsg,
       data: null
     });
   }
@@ -110,9 +113,12 @@ const updateKategori = async (req, res) => {
       data: kategori
     });
   } catch (error) {
+    const errorMsg = error.errors && error.errors.length > 0
+      ? error.errors.map(e => e.message).join(', ')
+      : error.message;
     return res.status(500).json({
       success: false,
-      message: 'Terjadi kesalahan pada server saat mengupdate kategori: ' + error.message,
+      message: 'Terjadi kesalahan pada server saat mengupdate kategori: ' + errorMsg,
       data: null
     });
   }
