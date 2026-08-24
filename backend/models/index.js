@@ -8,22 +8,43 @@ const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config.js')[env];
 const db = {};
 
-const options = {
+let connectionUrl = config.url || (config.use_env_variable ? process.env[config.use_env_variable] : null);
+
+// Sanitasi parameter sslmode dari connection string agar tidak menimpa ssl dialectOptions
+if (connectionUrl) {
+  try {
+    const urlObj = new URL(connectionUrl);
+    urlObj.searchParams.delete('sslmode');
+    connectionUrl = urlObj.toString();
+  } catch (_e) {
+    // jika bukan URL format standar, biarkan
+  }
+}
+
+const baseOptions = {
   ...config,
   dialectModule: pg
 };
 
+if (env === 'production' || connectionUrl) {
+  baseOptions.dialectOptions = {
+    ...(baseOptions.dialectOptions || {}),
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  };
+}
+
 let sequelize;
-if (env === 'production' && config.url) {
-  sequelize = new Sequelize(config.url, options);
-} else if (config.use_env_variable && process.env[config.use_env_variable]) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], options);
+if (connectionUrl) {
+  sequelize = new Sequelize(connectionUrl, baseOptions);
 } else {
   sequelize = new Sequelize(
     config.database,
     config.username,
     config.password,
-    options
+    baseOptions
   );
 }
 
