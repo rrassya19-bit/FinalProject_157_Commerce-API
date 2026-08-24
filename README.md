@@ -292,13 +292,10 @@ VITE_API_BASE_URL=http://localhost:3000
 
 ## Dokumentasi Tambahan
 
-- **`PERANCANGAN.md`** — Dokumen perancangan lengkap sistem (skema database, tech stack, alur endpoint)
+- **`LAPORAN.md`** — Laporan Lengkap Proyek Akhir (Akademik, Teori, Panduan User/Developer, Testing Matrix Postman, dan DDL Database)
+- **`PERANCANGAN.md`** — Dokumen perancangan awal sistem (skema database, tech stack, alur endpoint)
 - **`docs/DIAGRAM.md`** & folder **`docs/DIAGRAM/`** — ERD, Use Case Diagram, Activity Diagram, Class Diagram, Deployment Diagram
 - **`docs/Dokumentasi_Postman_Deploy_https=commerce-api-backend.vercel.app/`** & **`docs/Dokumentasi_Postman_LocalHost_http=localhost3000/`** — Koleksi Postman screenshot untuk testing seluruh endpoint
 - Halaman **API Docs** & **API Playground** tersedia langsung di dashboard frontend untuk uji coba endpoint secara interaktif tanpa aplikasi eksternal
 
 ---
-
-## Lisensi
-
-Project ini dibuat untuk keperluan **Tugas Akhir Semester Antara** — Mata Kuliah Pengembangan Web Servis.
